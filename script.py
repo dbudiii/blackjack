@@ -7,6 +7,7 @@ suits = ['Hearts', 'Clubs', 'Spades', 'Diamonds']
 ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
 deck = []
 player_hand = []
+dealer_hand = []
 
 def create_deck():
     for suit in suits:
@@ -36,5 +37,44 @@ def count_hand_value(hand):
     
     return total_value
 
-player_hand = [['Ace', 'Clubs'], ['Ace', 'Diamonds']]
-print(count_hand_value(player_hand))
+# Bust or not
+def isBust(hand):
+    isBust = False
+    if count_hand_value(hand) > 21:
+       isBust = True
+    
+    return isBust
+
+# Dealing cards to player
+def deal_card_player():
+    player_hand.append(deck)
+
+# Dealing cards to dealer
+def deal_card_dealer():
+    dealer_hand.append(deck)
+
+# Ask player hitting / passing
+def hitting_ask():
+    turn = True
+    while turn:
+        answer = input("Would you like to hit or pass? H/P")
+        if answer.upper == "H":
+            deal_card_player()
+            print("Your new deck value is: " + count_hand_value(player_hand))
+            
+            if isBust(player_hand):
+                print("You have busted. The game is over.")
+                turn = False
+
+        if answer.upper == "P":
+            turn = False
+
+        else:
+            print("Answer is invalid. Please choose hit or pass")
+
+
+
+# Check Dealer hands hitting / passing
+
+# Game logic
+create_deck()
