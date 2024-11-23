@@ -45,32 +45,29 @@ def isBust(hand):
     
     return isBust
 
-# Dealing cards to player
-def deal_card_player():
-    player_hand.append(deck)
+# Dealing cards
+def deal_card(hand):
+    card = deck.pop(0)
+    hand.append(card)
 
-# Dealing cards to dealer
-def deal_card_dealer():
-    dealer_hand.append(deck)
-
-# Ask player hitting / passing
-def hitting_ask():
-    turn = True
-    while turn:
-        answer = input("Would you like to hit or pass? H/P")
-        if answer.upper == "H":
-            deal_card_player()
-            print("Your new deck value is: " + count_hand_value(player_hand))
+# # Ask player hitting / passing
+# def hitting_ask():
+#     while True:
+#         answer = input("Would you like to hit or pass? H/P\n")
+        
+#         if answer == "H":
+#             deal_card_player()
+#             print("Your new deck value is: " + count_hand_value(player_hand))
             
-            if isBust(player_hand):
-                print("You have busted. The game is over.")
-                turn = False
+#             if isBust(player_hand):
+#                 print("You have busted. The game is over.")
+#                 break
 
-        if answer.upper == "P":
-            turn = False
+#         elif answer == "P":
+#             break
 
-        else:
-            print("Answer is invalid. Please choose hit or pass")
+#         else:
+#             print("Answer is invalid. Please choose hit or pass")
 
 
 
