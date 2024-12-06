@@ -18,3 +18,6 @@ Step 1: Set game items and mechanics
     5. After passing, dealer flips second card that was hidden. Deals another card to himself if < 17. Checks if > 21 before and stops if > 17.
     6. Check who has higher card, then declare winner
  
+ Bugs to fix:
+ - ending the game whenever there is a bust
+ - recognizing when there is blackjack
